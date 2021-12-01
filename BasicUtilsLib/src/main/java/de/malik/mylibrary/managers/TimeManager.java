@@ -85,18 +85,6 @@ public class TimeManager {
     }
 
     /**
-     * finds the week day of the given time string
-     * @param timeString the given time string
-     * @return the week day of the given time string
-     */
-    public static String weekDay(String timeString) {
-        Calendar c = Calendar.getInstance();
-        c.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
-        c.setTime(new Date(toMillis(timeString)));
-        return WEEK_DAYS[c.get(Calendar.DAY_OF_WEEK)];
-    }
-
-    /**
      * creates an array of long containing: 0 = hours; 1 = minutes; 2 = seconds.
      * @param timeString the time String which will be separated
      * @return an array of long with all the parts of the time String
@@ -200,7 +188,6 @@ public class TimeManager {
         Calendar c = Calendar.getInstance();
         DateFormat df = new SimpleDateFormat(default_date_format, Locale.getDefault());
         df.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
-        c.setFirstDayOfWeek(Calendar.MONDAY);
         c.setTime(df.parse(dateString));
         return c.get(Calendar.DAY_OF_WEEK);
     }
