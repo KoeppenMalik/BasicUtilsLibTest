@@ -72,16 +72,12 @@ public class TimeManager {
     public static String default_time_suffix = DEFAULT_TIME_SUFFIX;
 
     /**
-     * cuts off the default time suffix from the formatted time string
-     * @param formattedTimeStrings the formatted time strings which will be changed
+     * cuts off the default time suffix from the string
+     * @param str the string where the time suffix will be removed
      * @return a default time string
      */
-    public static String[] cutOffTimeSuffix(String... formattedTimeStrings) {
-        String[] results = new String[formattedTimeStrings.length];
-        for (int i = 0; i < formattedTimeStrings.length; i++) {
-            results[i] = formattedTimeStrings[i].split(" ")[0];
-        }
-        return results;
+    public static String cutOffTimeSuffix(String str) {
+        return str.split(" ")[0];
     }
 
     /**
@@ -274,6 +270,10 @@ public class TimeManager {
      * @return the difference from d1 and d2 in milli seconds
      */
     public static long diff(@NonNull Date d1, @NonNull Date d2) {
-        return d1.getTime() - d2.getTime();
+        long diff = d1.getTime() - d2.getTime();
+        if (diff < 0) {
+            diff += 24;
+        }
+        return diff;
     }
 }
