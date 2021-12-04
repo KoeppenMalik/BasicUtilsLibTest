@@ -272,7 +272,7 @@ public class TimeManager {
     public static long diff(@NonNull Date d1, @NonNull Date d2) {
         long diff = d1.getTime() - d2.getTime();
         if (diff < 0) {
-            diff += 24;
+            diff += HOURS;
         }
         return diff;
     }
