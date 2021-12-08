@@ -43,7 +43,7 @@ public class TimeManager {
      * an Array containing all the week days starting with "Montag" and ending with "Sonntag"
      */
     public static final String[] WEEK_DAYS = new String[] {
-            "Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"
+            "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"
     };
 
     /**
