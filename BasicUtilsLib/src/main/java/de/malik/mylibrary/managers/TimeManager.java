@@ -43,7 +43,7 @@ public class TimeManager {
      * an Array containing all the week days starting with "Montag" and ending with "Sonntag"
      */
     public static final String[] WEEK_DAYS = new String[] {
-            "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"
+            "Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"
     };
 
     /**
@@ -185,7 +185,7 @@ public class TimeManager {
         DateFormat df = new SimpleDateFormat(default_date_format, Locale.getDefault());
         df.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
         c.setTime(df.parse(dateString));
-        return c.get(Calendar.DAY_OF_WEEK);
+        return c.get(Calendar.DAY_OF_WEEK) -1;
     }
 
     /**
@@ -246,7 +246,7 @@ public class TimeManager {
      * @param minutes the minutes of the time
      * @param seconds the seconds of the time
      * @param includeSeconds if true, the String will contain the seconds, otherwise it will not
-     * @return a formatted String containing the hours, minutes and maybe seconds. The String will
+     * @return a formatted String containing the hours, minutes and maybe seconds, depending on <code>includeSeconds</code>. The String will
      *         be divided by <code>default_time_separator</code>
      */
     private static String formatValues(long hours, long minutes, long seconds, boolean includeSeconds) {
